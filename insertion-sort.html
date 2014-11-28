@@ -1,0 +1,101 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>insertion sort</h1>
+        <p id="values-to-sort"></p>
+        <p id="sorted-values"></p>
+        <p id="sorted-descending-values"></p>
+    </body>
+
+    <!--script>
+
+        function insertionSort(values) {
+
+        	for (var j = 1; j < values.length; j++) {
+        		var item =  values[j];
+        		
+        		var i = j - 1;
+        		while(i >= 0 && values[i] > item){
+        			values[i + 1] = values[i];
+        			i -= 1;
+        		}
+
+        		values[i + 1] = item;
+        	};	
+
+        	return values;
+        }
+
+        function insertionSortDescending(values) {
+
+        	for (var i = 1; i < values.length; i++) {
+        		var item =  values[i];
+        		
+        		var j = i - 1;
+        		while(j >= 0 && values[j] < item){
+        			values[j + 1] = values[j];
+        			j -= 1;
+        		}
+
+        		values[j + 1] = item;
+        	};	
+
+        	return values;
+        }
+
+		var valuesToSort = [5, 2, 4, 6, 1, 3];
+		document.getElementById("values-to-sort").innerHTML = JSON.stringify(valuesToSort);
+
+		var sortedValues = insertionSort(valuesToSort.slice());
+        document.getElementById("sorted-values").innerHTML = JSON.stringify(sortedValues);
+
+        var sortedDescendingValues = insertionSortDescending(valuesToSort.slice());
+        document.getElementById("sorted-descending-values").innerHTML = JSON.stringify(sortedDescendingValues);
+
+    </script-->
+
+    <script>
+
+
+    	function selectionSort(values){
+    		function nextMin(values, index){
+    			var result = values[index];
+	    		for (var t = index; t < values.length; t++) {
+    			
+    				if (values[t] > values[index]) {
+    					if (result <= values[index]) {
+	    					result = values[t];
+    					}else{
+    						if (result > values[t]) {
+    							result = values[t];
+    						}
+    					}
+    				}
+	    		}
+
+	    		return result;
+    		}
+
+    		var result = [];
+    		var theLowest;
+    		for (var r = 0; r < values.length; r++) {
+    			theLowest = nextMin(values, r);
+    			result.push(theLowest);
+    		};
+
+    		return result;
+    	}
+
+		var valuesToSort = [5, 2, 4, 6, 1, 3];
+		document.getElementById("values-to-sort").innerHTML = JSON.stringify(valuesToSort);
+
+		var sortedValues = selectionSort(valuesToSort.slice());
+        document.getElementById("sorted-values").innerHTML = JSON.stringify(sortedValues);
+
+//        var sortedDescendingValues = insertionSortDescending(valuesToSort.slice());
+//        document.getElementById("sorted-descending-values").innerHTML = JSON.stringify(sortedDescendingValues);
+    </script>
+
+    
+</html>
