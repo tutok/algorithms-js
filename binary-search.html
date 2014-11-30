@@ -1,0 +1,45 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>merge sort</h1>
+        <p id="values-to-sort"></p>
+        <p id="sorted-values"></p>
+        <p id="sorted-descending-values"></p>
+    </body>
+
+    <script>
+
+
+        var binarySearch = function(value, A, a, z){
+            a = a || 0;
+            z = z || A.length - 1;
+
+            var centerElementIndex = Math.floor((z-a) / 2) + a;
+            if (A[centerElementIndex] == value)
+            {
+                return centerElementIndex;
+            }
+
+
+            if (A[centerElementIndex] > value) {
+                z = centerElementIndex - 1;
+                return binarySearch(value, A, a, z);
+            } else {
+                a = centerElementIndex + 1;
+                return binarySearch(value, A, a, z);
+            }
+
+        };
+
+
+
+        var A = [2, 3, 5, 6, 9, 10, 11];
+		document.getElementById("values-to-sort").innerHTML = JSON.stringify(A);
+
+        var a = 10;
+
+        var aIndex = binarySearch(a, A);
+        document.getElementById("sorted-values").innerHTML = aIndex;
+    </script>
+</html>
